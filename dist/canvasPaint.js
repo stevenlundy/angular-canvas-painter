@@ -7,10 +7,10 @@
 (function(window) {
 'use strict';
 
-angular.module('canvas-painter', []);
+angular.module('pw.canvas-painter', []);
 'use strict';
 
-angular.module('canvas-painter')
+angular.module('pw.canvas-painter')
   .directive('pwCanvas', function () {
     return {
       restrict: 'AE',
@@ -248,7 +248,7 @@ angular.module('canvas-painter')
 
 'use strict';
 
-angular.module('canvas-painter')
+angular.module('pw.canvas-painter')
   .directive('pwColorSelector', function () {
     return {
       restrict: 'AE',
@@ -269,9 +269,9 @@ angular.module('canvas-painter')
 
 (function(module) {
 try {
-  module = angular.module('canvas-painter');
+  module = angular.module('pw.canvas-painter');
 } catch (e) {
-  module = angular.module('canvas-painter', []);
+  module = angular.module('pw.canvas-painter', []);
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('canvas.html',
@@ -281,9 +281,9 @@ module.run(['$templateCache', function($templateCache) {
 
 (function(module) {
 try {
-  module = angular.module('canvas-painter');
+  module = angular.module('pw.canvas-painter');
 } catch (e) {
-  module = angular.module('canvas-painter', []);
+  module = angular.module('pw.canvas-painter', []);
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('color-selector.html',
