@@ -63,7 +63,7 @@
     <div class="container" ng-controller="MainController as ctrl">
       <div pw-canvas
            version="ctrl.version"
-           options="{undo: 3, width: 400, height: 300, color: selectedColor, lineWidth: selectedLineWidth}"></div>
+           options="{undo: true, width: 400, height: 300, color: selectedColor, lineWidth: selectedLineWidth}"></div>
       <div pw-color-selector="['#000', '#9CB199', '#CF3759', '#485247', '#E77547', '#D38E47', '#0A6A74', '#153974']" color="selectedColor"></div>
       <input type="range" min="1" max="50" ng-model="selectedLineWidth" class="lineWidthSelector">{{selectedLineWidth}}
 
