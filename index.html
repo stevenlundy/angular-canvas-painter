@@ -38,19 +38,50 @@
       }
 
       .lineWidthSelector {
-      	width: 100%;
+        width: 100%;
+      }
+
+      .undo {
+        margin-top: 20px;
+      }
+
+      .undo > button {
+        background-color: orange;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+      }
+
+      .undo > button[disabled] {
+        background-color: #aaa;
       }
     </style>
   </head>
   <body>
 
-    <div class="container">
-      <div pw-canvas options="{width: 400, height: 300, color: selectedColor, lineWidth: selectedLineWidth}"></div>
+    <div class="container" ng-controller="MainController as ctrl">
+      <div pw-canvas
+           version="ctrl.version"
+           options="{undo: 3, width: 400, height: 300, color: selectedColor, lineWidth: selectedLineWidth}"></div>
       <div pw-color-selector="['#000', '#9CB199', '#CF3759', '#485247', '#E77547', '#D38E47', '#0A6A74', '#153974']" color="selectedColor"></div>
       <input type="range" min="1" max="50" ng-model="selectedLineWidth" class="lineWidthSelector">{{selectedLineWidth}}
+
+      <div class="undo">
+        <button ng-click="ctrl.undo()"
+                ng-disabled="ctrl.version < 1">Undo (Version {{ctrl.version}})</button>
+      </div>
     </div>
 
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="dist/angular-canvas-painter.js"></script>
+
+    <script type="text/javascript">
+      angular.module('pw.canvas-painter').controller('MainController', function($scope){
+        this.undo = function(){
+          this.version--;
+        };
+      });
+    </script>
   </body>
 </html>
