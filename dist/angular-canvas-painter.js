@@ -1,5 +1,5 @@
 /*!
- * angular-canvas-painter - v0.1.0
+ * angular-canvas-painter - v0.3.0
  *
  * Copyright (c) 2015, Philipp Wambach
  * Released under the MIT license.
@@ -61,6 +61,16 @@ angular.module('pw.canvas-painter')
         options.opacity = options.opacity || 0.9;
         options.lineWidth = options.lineWidth || 1;
         options.undo = options.undo || false;
+				options.imageSrc = options.imageSrc || false;
+
+				// background image
+				if(options.imageSrc){
+					var image = new Image();
+					image.onload = function(){
+						ctx.drawImage(this, 0, 0);
+					};
+					image.src = options.imageSrc;
+				}
 
         //undo
         if(options.undo){
